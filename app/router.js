@@ -10,6 +10,7 @@ Router.map(function() {
     this.route('game', { path : '/:game_id' });
   });
   this.route('login');
+  this.route('games/game');
 });
 
 export default Router;
