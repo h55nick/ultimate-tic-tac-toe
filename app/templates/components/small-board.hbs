@@ -1,13 +1,14 @@
 I am a small board
 
 {{!-- {{yield}} --}}
+{{board.row}}
 <table>
   <thead></thead>
   <tbody>
-    {{#each row in board.row }}
+    {{#each row in board.rows }}
       <tr>
         {{#each square in row}}
-        <td>{{tic-spot square=square currentPlayer=currentPlayer}}</td>
+          <td>{{tic-spot square=square currentPlayer=currentPlayer}}</td>
         {{/each}}
       </tr>
     {{/each}}

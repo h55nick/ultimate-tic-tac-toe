@@ -1,31 +1,21 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-    // x0y0: Ember.Object.create({state: null }),
-    // x0y1: Ember.Object.create({state: null }),
-    // x0y2: Ember.Object.create({state: null }),
-
-    // x1y0: Ember.Object.create({state: null}),
-    // x1y1: Ember.Object.create({state: null}),
-    // x1y2: Ember.Object.create({state: null}),
-
-    // x2y0: Ember.Object.create({state: null}),
-    // x2y1: Ember.Object.create({state: null}),
-    // x2y2: Ember.Object.create({state: null}),
-
     // bounceState: function(){
 
     // }.property(''),
 
     rows: function(){
-       return [0,1,2].map(function(y){
-        column(i);
+      var self = this;
+       return [0,1,2].map(function(x){
+        return self.column(x);
       });
     }.property(''),
 
     column: function(x){
+      var self = this;
       return [0,1,2].map(function(y){
-        this.get('X'+ x + 'Y' + y );
+        return self.get('X'+ x + 'Y' + y );
       });
     },
 
