@@ -1,0 +1,10 @@
+import Ember from 'ember';
+
+export default Ember.Component.extend({
+  actions: {
+    select: function(){
+      this.set('square.state', '5');
+      this.get('currentPlayer')
+    }
+  }
+});

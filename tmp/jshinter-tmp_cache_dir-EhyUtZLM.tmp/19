@@ -1,0 +1,4 @@
+module('JSHint - uttt/components');
+test('uttt/components/small-board.js should pass jshint', function() { 
+  ok(false, 'uttt/components/small-board.js should pass jshint.\nuttt/components/small-board.js: line 1, col 1, \'import\' is only available in ES6 (use esnext option).\nuttt/components/small-board.js: line 3, col 1, \'export\' is only available in ES6 (use esnext option).\nuttt/components/small-board.js: line 11, col 9, Duplicate key \'x0y0\'.\nuttt/components/small-board.js: line 12, col 9, Duplicate key \'x0y1\'.\nuttt/components/small-board.js: line 13, col 9, Duplicate key \'x0y2\'.\n\n5 errors'); 
+});

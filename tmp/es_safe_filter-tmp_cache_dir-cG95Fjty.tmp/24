@@ -1,0 +1,20 @@
+import Ember from 'ember';
+
+export default Ember.Component.extend({
+
+  board: {
+    x0y0: Ember.object.create({state: 'X'}),
+    x0y1: Ember.object.create({state: 'X'}),
+    x0y2: Ember.object.create({state: 'X'}),
+
+    x1y0: Ember.object.create({state: 'X'}),
+    x1y1: Ember.object.create({state: 'X'}),
+    x1y2: Ember.object.create({state: 'X'}),
+
+    x2y0: Ember.object.create({state: 'X'}),
+    x2y1: Ember.object.create({state: '-'}),
+    x2y2: Ember.object.create({state: 'X'}),
+
+  }
+
+});

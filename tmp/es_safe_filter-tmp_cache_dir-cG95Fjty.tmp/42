@@ -1,0 +1,9 @@
+import Ember from 'ember';
+
+export default Ember.Component.extend({
+  actions: {
+    select: function(){
+      this.set('square.state', this.get('currentPlayer.type'))
+    }
+  }
+});
