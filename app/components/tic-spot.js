@@ -7,7 +7,6 @@ export default Ember.Component.extend({
 
   actions: {
     select: function(){
-      console.log('selecting..');
       this.set('square', this.get('currentPlayer.type'));
       this.get('currentPlayer').toggle();
     }
