@@ -1,4 +1,0 @@
-module('JSHint - uttt/components');
-test('uttt/components/small-board.js should pass jshint', function() { 
-  ok(false, 'uttt/components/small-board.js should pass jshint.\nuttt/components/small-board.js: line 1, col 1, \'import\' is only available in ES6 (use esnext option).\nuttt/components/small-board.js: line 3, col 1, \'export\' is only available in ES6 (use esnext option).\nuttt/components/small-board.js: line 5, col 29, Expected \'}\' to match \'{\' from line 3 and instead saw \'{\'.\nuttt/components/small-board.js: line 6, col 5, Expected \')\' and instead saw \'x0y0\'.\nuttt/components/small-board.js: line 6, col 9, Missing semicolon.\nuttt/components/small-board.js: line 6, col 9, Expected \'(end)\' and instead saw \':\'.\n\n6 errors'); 
-});

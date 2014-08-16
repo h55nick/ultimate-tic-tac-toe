@@ -17,6 +17,18 @@ export default DS.Model.extend({
 
     // }.property(''),
 
+    rows: function(){
+       return [0,1,2].map(function(y){
+        column(i);
+      });
+    }.property(''),
+
+    column: function(x){
+      return [0,1,2].map(function(y){
+        this.get('X'+ x + 'Y' + y );
+      });
+    },
+
     checkState: function(squareArray){
       return squareArray.every(function(square){
         // state can't be null (empty) and all states must be the same as the first.

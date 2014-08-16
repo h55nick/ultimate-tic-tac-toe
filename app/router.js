@@ -8,6 +8,7 @@ Router.map(function() {
   this.resource('games', function(){
     this.route('game', { path : '/:game_id' });
   });
+  this.route('login');
 });
 
 export default Router;

@@ -4,20 +4,12 @@ I am a small board
 <table>
   <thead></thead>
   <tbody>
+    {{#each row in board.row }}
       <tr>
-        <td>{{tic-spot square=board.x0y0 currentPlayer=currentPlayer}}</td>
-        <td>{{tic-spot square=board.x0y1 currentPlayer=currentPlayer}}</td>
-        <td>{{tic-spot square=board.x0y2 currentPlayer=currentPlayer}}</td>
+        {{#each square in row}}
+        <td>{{tic-spot square=square currentPlayer=currentPlayer}}</td>
+        {{/each}}
       </tr>
-      <tr>
-        <td>{{tic-spot square=board.x1y0 currentPlayer=currentPlayer}}</td>
-        <td>{{tic-spot square=board.x1y1 currentPlayer=currentPlayer}}</td>
-        <td>{{tic-spot square=board.x1y2 currentPlayer=currentPlayer}}</td>
-      </tr>
-      <tr>
-        <td>{{tic-spot square=board.x2y0 currentPlayer=currentPlayer}}</td>
-        <td>{{tic-spot square=board.x2y1 currentPlayer=currentPlayer}}</td>
-        <td>{{tic-spot square=board.x2y2 currentPlayer=currentPlayer}}</td>
-      </tr>
+    {{/each}}
   </tbody>
 </table>
