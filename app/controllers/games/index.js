@@ -12,7 +12,10 @@ export default Ember.ArrayController.extend({
         var promises = [];
         [0,1,2].forEach(function(x){
           [0,1,2].forEach(function(y){
-            promises.pushObject( _this.store.createRecord('board', { name: 'x'+ x+ 'y'+ y }).save());
+            promises.pushObject( _this.store.createRecord('board', {
+             name: 'x'+ x + 'y'+ y,
+             game: g
+            }).save());
           });
         });
         RSVP.Promise.all(promises).then(function(boards){
