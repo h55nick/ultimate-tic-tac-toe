@@ -1,6 +1,8 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
+    game: DS.belongsTo('game', { async: true }),
+    name: DS.attr('string'),
     // In use we define the squares as properties that follow x0y0 conventions
     // this means if you are looking for the middle square of this board you .get('x1y1') etc.
     // these start in the undefined/null state. (see bottom for how they are rendered)
@@ -37,9 +39,6 @@ export default DS.Model.extend({
         return self.checkState(self.column(colNumber));
       });
     },
-
-
-
 
     checkState: function(squareArray){
       return squareArray.every(function(square){
