@@ -26,7 +26,8 @@ export default Ember.Object.extend({
 
   login: function(){
     return this.get('firebaseSimpleLogin').login('facebook', {
-        rememberMe: true
+        rememberMe: true,
+        scope: 'email'
       });
   }
 });
