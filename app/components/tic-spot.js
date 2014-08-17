@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   selectable: function(){
-    return this.get('square') == null;
+    return this.get('square') === null;
   }.property('square'),
 
   actions: {

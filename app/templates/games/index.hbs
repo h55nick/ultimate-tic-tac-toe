@@ -1,7 +1,10 @@
 games index:
 <ul>
 {{#each game in controller}}
-<li>name: {{game.name}} {{link-to 'games' 'games.game' game}}</li>
+  <li>
+    {{link-to game.name 'games.game' game}}
+    | {{game.id}}
+  </li>
 {{/each}}
 </ul>
 

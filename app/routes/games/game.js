@@ -2,9 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   beforeModel: function(){
-    if (!this.get('auth.user')){
-      this.transitionTo('login');
-    }
+    // if (!this.get('auth.user')){
+    //   this.transitionTo('login');
+    // }
+
+
   },
   setupController: function(controller, model){
     this._super(controller, model);
@@ -18,5 +20,6 @@ export default Ember.Route.extend({
       model.set('currentPlayer', model.get('player1'));
     }
     model.save();
+
   }
 });

@@ -1,8 +1,16 @@
 -ultimate-tic-tac-toe
--====================
-+# Uttt
+====================
+# Uttt
 
--Ember CLI + Firebase = CoolThis README outlines the details of collaborating on this Ember application.
+Game is deployed to:
+https://stictactoe.firebaseapp.com
+
+-Ember CLI + Firebase = Cool
+
+## Collaborators
+Nick
+Andre
+
 
 ## Installation
 
@@ -25,3 +33,9 @@
 * `ember build`
 
 For more information on using ember-cli, visit [http://iamstef.net/ember-cli/](http://iamstef.net/ember-cli/).
+
+
+## Firebase deploy (once setup)
+
+* `ember build`
+* `firebase deploy`
