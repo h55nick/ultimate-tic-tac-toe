@@ -12,7 +12,7 @@ test('it exists', function() {
 });
 
 test('it can determine if there is a winner', function(){
-  var b1 = this.Board.create({
+  var b1 = this.store().createRecord('board', {
     x0y0: 1,
     x0y1: 1,
     x0y2: 1
