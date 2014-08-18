@@ -8,6 +8,8 @@
 Game Name: {{game.name}}
 <br/>number of boards: {{game.boards.length}}
 
+<p>Currently: {{currentPlayer.name}}</p>
+
 {{#each board in game.boards}}
-    {{small-board board=board   currentPlayer=currentPlayer }}
+    {{small-board board=board   currentPlayer=currentPlayer action="changePlayer"  }}
 {{/each}}

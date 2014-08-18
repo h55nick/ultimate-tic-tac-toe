@@ -9,17 +9,6 @@ export default Ember.ArrayController.extend({
           name: 'autocreate- ' + Math.random()
         });
       game.save().then(function(g){
-        // debugger
-        //   _this.store.createRecord('board', {
-        //        name: 'x0y0',
-        //        game: g
-        //       }).save().then(function(b){
-        //          g.get('boards').then(function(boards){
-        //           boards.pushObjects([b]);
-        //         });
-        //         g.save();
-        //       });
-
         var promises = [];
 
         // For creating all 9 (not tested)

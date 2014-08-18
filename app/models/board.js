@@ -13,9 +13,9 @@ export default DS.Model.extend({
 
 
     bounceState: function(){
-      console.log('updateBounceState');
+      // console.log('updateBounceState');
       var state = this.horizontalWin() || this.verticalWin() || this.diagonalWin();
-      console.log(state);
+      // console.log(state);
       return state;
     }.property(
       'x0y0',
