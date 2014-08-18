@@ -14,7 +14,7 @@ export default Ember.Controller.extend({
       });
     this.set('player1',player1);
     this.set('player2',player2);
-    this.set('currentPlayer', player1)
+    this.set('currentPlayer', player1);
 
   },
 
@@ -26,14 +26,9 @@ export default Ember.Controller.extend({
 
   actions: {
     changePlayer: function(){
-      console.log('changing player')
       var playerNumber = this.get('setPlayer1') ? 1 : 2
-      console.log('playerNunber', playerNumber);
-      console.log('setPlayer1', this.get('setPlayer1'));
       this.set('currentPlayer', this.get('player'+ playerNumber) );
-      console.log('currentPlayer', this.get('currentPlayer.type'));
       this.toggleProperty('setPlayer1');
-      console.log(this.get('setPlayer1'));
     }
   }
 
