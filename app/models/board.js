@@ -13,8 +13,15 @@ export default DS.Model.extend({
 
 
     bounceState: function(){
-      // console.log('updateBounceState');
-      var state = this.horizontalWin() || this.verticalWin() || this.diagonalWin();
+      var horizontalWin = this.horizontalWin();
+      var verticalWin = this.verticalWin();
+      var diagonalWin = this.diagonalWin();
+
+      console.log('hor', horizontalWin);
+      console.log('vert', verticalWin);
+      console.log('diag', diagonalWin);
+
+      var state = horizontalWin || verticalWin || diagonalWin;
       // console.log(state);
       return state;
     }.property(
@@ -29,18 +36,24 @@ export default DS.Model.extend({
       'x2y2'
     ),
 
+    notBounceState: function(){
+      return !this.get('bounceState');
+    }.property('bounceState'),
+
     horizontalWin: function(){
       var self = this;
-      return [0,1,2].find(function(rowNumber){
+      var potentialRow = [0,1,2].find(function(rowNumber){
         return self.checkState(self.row(rowNumber));
       });
+      return potentialRow ? self.row(potentialRow) : false;
     },
 
     verticalWin: function(){
       var self = this;
-      return [0,1,2].find(function(colNumber){
+      var potentialCol = [0,1,2].find(function(colNumber){
         return self.checkState(self.column(colNumber));
       });
+      return potentialCol ? self.column(potentialCol) : false;
     },
 
     diagonalWin: function(){
@@ -52,11 +65,14 @@ export default DS.Model.extend({
         return forwardDiagonal;
       }else if(self.checkState(backwardDiagonal)){
         return backwardDiagonal;
+      }else{
+        return false;
       }
     },
 
     checkState: function(squareArray){
-      return squareArray.every(function(square){
+      console.log('square array', squareArray);
+      return Ember.A(squareArray).every(function(square){
         // state can't be null (empty) and all states must be the same as the first.
         return square && (squareArray.get('firstObject') === square);
       });

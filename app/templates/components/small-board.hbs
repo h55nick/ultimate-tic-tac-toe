@@ -1,28 +1,33 @@
-I am a small board
+{{!-- I am a small board
 
 {{# if board.bounceState}}
-  Someone won!
+
 {{/if}}
 
-<p>{{currentPlayer.name}}</p>
+<p>{{currentPlayer.name}}</p> --}}
 {{!-- {{yield}} --}}
-<table>
-  <thead></thead>
-  <tbody>{{!-- action="changePlayer" --}}
-      <tr>
-        <td>{{tic-spot square=board.x0y0 currentPlayer=currentPlayer action="changePlayer" }}</td>
-        <td>{{tic-spot square=board.x0y1 currentPlayer=currentPlayer action="changePlayer" }}</td>
-        <td>{{tic-spot square=board.x0y2 currentPlayer=currentPlayer action="changePlayer" }}</td>
-      </tr>
-      <tr>
-        <td>{{tic-spot square=board.x1y0 currentPlayer=currentPlayer action="changePlayer" }}</td>
-        <td>{{tic-spot square=board.x1y1 currentPlayer=currentPlayer action="changePlayer" }}</td>
-        <td>{{tic-spot square=board.x1y2 currentPlayer=currentPlayer action="changePlayer" }}</td>
-      </tr>
-      <tr>
-        <td>{{tic-spot square=board.x2y0 currentPlayer=currentPlayer action="changePlayer" }}</td>
-        <td>{{tic-spot square=board.x2y1 currentPlayer=currentPlayer action="changePlayer" }}</td>
-        <td>{{tic-spot square=board.x2y2 currentPlayer=currentPlayer action="changePlayer" }}</td>
-      </tr>
-  </tbody>
-</table>
+{{ board.bounceState }}
+{{#if board.notBounceState }}
+  <table style='inline'>
+    <thead></thead>
+    <tbody>{{!-- action="changePlayer" --}}
+        <tr>
+          <td>{{tic-spot square=board.x0y0 currentPlayer=currentPlayer action="changePlayer" }}</td>
+          <td>{{tic-spot square=board.x0y1 currentPlayer=currentPlayer action="changePlayer" }}</td>
+          <td>{{tic-spot square=board.x0y2 currentPlayer=currentPlayer action="changePlayer" }}</td>
+        </tr>
+        <tr>
+          <td>{{tic-spot square=board.x1y0 currentPlayer=currentPlayer action="changePlayer" }}</td>
+          <td>{{tic-spot square=board.x1y1 currentPlayer=currentPlayer action="changePlayer" }}</td>
+          <td>{{tic-spot square=board.x1y2 currentPlayer=currentPlayer action="changePlayer" }}</td>
+        </tr>
+        <tr>
+          <td>{{tic-spot square=board.x2y0 currentPlayer=currentPlayer action="changePlayer" }}</td>
+          <td>{{tic-spot square=board.x2y1 currentPlayer=currentPlayer action="changePlayer" }}</td>
+          <td>{{tic-spot square=board.x2y2 currentPlayer=currentPlayer action="changePlayer" }}</td>
+        </tr>
+    </tbody>
+  </table>
+  {{else}}
+    Winner {{board.bounceState}}
+  {{/if}}

@@ -10,3 +10,12 @@ test('it exists', function() {
   // var store = this.store();
   ok(model);
 });
+
+test('it can determine if there is a winner', function(){
+  var b1 = this.Board.create({
+    x0y0: 1,
+    x0y1: 1,
+    x0y2: 1
+  });
+  equal(b1.get('notBounceState'), true);
+});

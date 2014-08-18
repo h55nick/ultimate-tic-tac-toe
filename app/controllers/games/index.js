@@ -11,7 +11,7 @@ export default Ember.ArrayController.extend({
       game.save().then(function(g){
         var promises = [];
 
-        // For creating all 9 (not tested)
+        // For creating all 9
 
         [0,1,2].forEach(function(x){
           [0,1,2].forEach(function(y){
