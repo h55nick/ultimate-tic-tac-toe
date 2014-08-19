@@ -45,7 +45,7 @@ export default DS.Model.extend({
       var potentialRow = [0,1,2].find(function(rowNumber){
         return self.checkState(self.row(rowNumber));
       });
-      return potentialRow ? self.row(potentialRow) : false;
+      return potentialRow === undefined ? false : self.row(potentialRow);
     },
 
     verticalWin: function(){
@@ -53,7 +53,7 @@ export default DS.Model.extend({
       var potentialCol = [0,1,2].find(function(colNumber){
         return self.checkState(self.column(colNumber));
       });
-      return potentialCol ? self.column(potentialCol) : false;
+      return potentialCol === undefined ? false : self.column(potentialCol);
     },
 
     diagonalWin: function(){
@@ -83,15 +83,15 @@ export default DS.Model.extend({
     //
 
     forwardDiagonal: function(){
-      return  [   this.get('x0y0'),
+      return  Ember.A([   this.get('x0y0'),
                   this.get('x1y1'),
-                  this.get('x2y2')  ];
+                  this.get('x2y2')  ]);
     }.property('x0y0','x1y1','x2y2'),
 
     backwardDiagonal: function(){
-      return  [   this.get('x2y0'),
+      return  Ember.A([   this.get('x2y0'),
                   this.get('x1y1'),
-                  this.get('x0y2')  ];
+                  this.get('x0y2')  ]);
     }.property('x2y0','x1y1','x0y2'),
 
 
