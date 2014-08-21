@@ -14,9 +14,12 @@ export default Ember.Object.extend({
           _this.set('error', error);
           console.log(error);
         } else if (user) {
-          console.log("User ID: " + user.uid + ", Provider: " + user.provider);
-          _this.set('user', user);
+          _this.store.find('player', user.uid).then(function(dataUser){
+            _this.set('user', dataUser);
+            console.log("User  found in data ID: " + dataUser.get('id'));
+          });
         } else {
+          console.log('there is no logged in user, should redirect to login');
           // user is logged out
         }
       }
