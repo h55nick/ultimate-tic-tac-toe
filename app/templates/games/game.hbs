@@ -10,6 +10,24 @@ Game Name: {{game.name}}
 
 <p>Currently: {{currentPlayer.name}}</p>
 
-{{#each board in game.boards}}
-    {{small-board board=board   currentPlayer=currentPlayer action="changePlayer"  }}
-{{/each}}
+
+<table style='inline'>
+  <thead></thead>
+  <tbody>{{!-- action="changePlayer" --}}
+      <tr>
+        <td>{{small-board board=game.x0y0 currentPlayer=currentPlayer action="changePlayer" }}</td>
+        <td>{{small-board board=game.x0y1 currentPlayer=currentPlayer action="changePlayer" }}</td>
+        <td>{{small-board board=game.x0y2 currentPlayer=currentPlayer action="changePlayer" }}</td>
+      </tr>
+      <tr>
+        <td>{{small-board board=game.x1y0 currentPlayer=currentPlayer action="changePlayer" }}</td>
+        <td>{{small-board board=game.x1y1 currentPlayer=currentPlayer action="changePlayer" }}</td>
+        <td>{{small-board board=game.x1y2 currentPlayer=currentPlayer action="changePlayer" }}</td>
+      </tr>
+      <tr>
+        <td>{{small-board board=game.x2y0 currentPlayer=currentPlayer action="changePlayer" }}</td>
+        <td>{{small-board board=game.x2y1 currentPlayer=currentPlayer action="changePlayer" }}</td>
+        <td>{{small-board board=game.x2y2 currentPlayer=currentPlayer action="changePlayer" }}</td>
+      </tr>
+  </tbody>
+</table>

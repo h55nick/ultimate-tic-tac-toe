@@ -17,12 +17,8 @@ export default DS.Model.extend({
       var verticalWin = this.verticalWin();
       var diagonalWin = this.diagonalWin();
 
-      console.log('hor', horizontalWin);
-      console.log('vert', verticalWin);
-      console.log('diag', diagonalWin);
-
       var state = horizontalWin || verticalWin || diagonalWin;
-      // console.log(state);
+
       return state;
     }.property(
       'x0y0',
@@ -71,7 +67,7 @@ export default DS.Model.extend({
     },
 
     checkState: function(squareArray){
-      console.log('square array', squareArray);
+      // console.log('square array', squareArray);
       return Ember.A(squareArray).every(function(square){
         // state can't be null (empty) and all states must be the same as the first.
         return square && (squareArray.get('firstObject') === square);
