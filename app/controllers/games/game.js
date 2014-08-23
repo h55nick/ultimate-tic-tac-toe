@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import BoardLogicMixin from 'uttt/mixins/board-logic';
 
-export default Ember.Controller.extend({
+export default Ember.Controller.extend(BoardLogicMixin,{
 
   game: Ember.computed.alias('content'),
   player1: Ember.computed.alias('content.player1'),
