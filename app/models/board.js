@@ -2,6 +2,7 @@ import DS from 'ember-data';
 import BoardLogicMixin from 'uttt/mixins/board-logic';
 
 export default DS.Model.extend(BoardLogicMixin,{
+    active: DS.attr('boolean', { defaultValue: true }),
     game: DS.belongsTo('game', { async: true }),
     name: DS.attr('string'),
 
@@ -18,6 +19,10 @@ export default DS.Model.extend(BoardLogicMixin,{
         return square && (squareArray.get('firstObject') === square);
       });
     },
+
+    winner: function(){
+      return this.get('bounceState.firstObject');
+    }.property('bounceState'),
 
     // The 9 squares of a tick-tac-toe board
     //

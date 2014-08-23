@@ -2,11 +2,35 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
   name: DS.attr('string'),
+  boards: DS.hasMany('board', { async: true }),
+
+
+  // Player Management
+  //
   player1: DS.attr('string'),
   player2: DS.attr('string'),
-  currentPlayer: DS.attr('string'),
+  currentPlayerInt: 1,
 
-  boards: DS.hasMany('board', { async: true }),
+  currentPlayer: function(){
+    return this.get('player'+ this.get('currentPlayerInt'));
+  }.property('currentPlayerInt'),
+
+  changePlayer: function(){
+      var playerNumber = this.get('currentPlayerInt') != 1 ? 1 : 2;
+      this.set('currentPlayerInt', playerNumber );
+  },
+
+
+  // State Management
+  //
+
+  checkState: function(boardArray){
+    // console.log('square array', squareArray);
+    return Ember.A(boardArray).every(function(board){
+      // state can't be null (empty) and all states must be the same as the first.
+      return square && (squareArray.get('firstObject') === square);
+    });
+  },
 
   // The 9 squares of a tick-tac-toe board
   //
