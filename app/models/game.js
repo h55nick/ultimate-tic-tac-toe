@@ -8,7 +8,7 @@ export default DS.Model.extend({
 
   // Player Management
   //
-  players: DS.hasMany('player'),
+  players: DS.hasMany('player', { async: true }),
   player1: Ember.computed.alias('players.firstObject'),
   player2: function(){
     if(this.get('players.length') == 2){
