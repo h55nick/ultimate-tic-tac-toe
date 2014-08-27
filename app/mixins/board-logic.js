@@ -2,6 +2,14 @@ import Ember from 'ember';
 
 export default Ember.Mixin.create({
 
+    // autoSave: function(){
+    //   // This currently creates an endless cycle.
+    //   console.log('saving..');
+    //   this.save().then(function(){
+    //     console.log('saved');
+    //   });
+    // }.observes('isDirty'),
+
     bounceState: function(){
       var horizontalWin = this.horizontalWin();
       var verticalWin = this.verticalWin();

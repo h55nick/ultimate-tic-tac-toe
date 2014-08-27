@@ -9,15 +9,22 @@ export default DS.Model.extend({
   //
   player1: DS.attr('string'),
   player2: DS.attr('string'),
-  currentPlayerInt: 1,
+  currentPlayerInt: DS.attr('number', { defaultValue: 1 }),
 
   currentPlayer: function(){
     return this.get('player'+ this.get('currentPlayerInt'));
   }.property('currentPlayerInt'),
 
   changePlayer: function(){
-      var playerNumber = this.get('currentPlayerInt') != 1 ? 1 : 2;
+
+      var currentInt = this.get('currentPlayerInt');
+      console.log('changing player', currentInt);
+
+      var playerNumber =  currentInt == 1 ? 2 : 1;
       this.set('currentPlayerInt', playerNumber );
+
+      var currentInt = this.get('currentPlayerInt');
+      console.log('changing player', currentInt);
   },
 
 
