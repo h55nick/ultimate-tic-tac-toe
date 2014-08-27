@@ -6,7 +6,8 @@ export default Ember.ArrayController.extend({
     createGame: function(){
       var _this = this;
       var game = this.store.createRecord('game', {
-          name: 'autocreate- ' + Math.random()
+          name: 'autocreate- ' + Math.random(),
+          currentPlayerInt: 1
         });
       game.save().then(function(g){
         var promises = [];

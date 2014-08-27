@@ -4,9 +4,9 @@ games index:
   <li>
     {{link-to game.name 'games.game' game}}
     | {{game.id}}
-    | 1) {{game.player1}}
-    | 2) {{game.player2}}
-    | C) {{game.currentPlayer}}
+    | 1) {{game.player1.email}}
+    | 2) {{game.player2.email}}
+    | C) {{game.currentPlayer.email}}
   </li>
 {{/each}}
 </ul>

@@ -10,16 +10,11 @@ export default Ember.Route.extend({
   },
   setupController: function(controller, model){
     this._super(controller, model);
-    if (model.get('player1')){
-      model.set('player2', this.get('auth.user.id'));
-    } else{
-      model.set('player1', this.get('auth.user.id'));
-    }
-
-    if(!model.get('currentPlayer')){
-      model.set('currentPlayer', model.get('player1'));
+    var players = model.get('players');
+    var user = this.get('auth.user');
+    if (players.get('length') < 2 && !players.contains(user)){
+      players.pushObject(user);
     }
     model.save();
-
   }
 });
