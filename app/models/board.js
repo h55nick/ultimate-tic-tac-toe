@@ -1,9 +1,11 @@
 import DS from 'ember-data';
 import BoardLogicMixin from 'uttt/mixins/board-logic';
 
-export default DS.Model.extend(BoardLogicMixin,{
+export default DS.Model.extend( BoardLogicMixin, {
+
     active: DS.attr('boolean', { defaultValue: true }),
     game: DS.belongsTo('game', { async: true }),
+    currentPlayer: Ember.computed.alias('game.currentPlayer'),
     name: DS.attr('string'),
 
     //

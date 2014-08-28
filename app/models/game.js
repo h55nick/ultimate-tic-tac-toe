@@ -2,24 +2,17 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
   name: DS.attr('string'),
-  currentPlayerInt: DS.attr('number'),
+  currentPlayerInt: DS.attr('number', { defaultValue: 1 }),
   boards: DS.hasMany('board', { async: true }),
 
 
   // Player Management
   //
 
-
-
   players: DS.hasMany('player', { async: true }),
   player1: Ember.computed.alias('players.firstObject'),
-  player2: function(){
-    if(this.get('players.length') == 2){
-      return this.get('players.lastObject');
-    }
-  }.property('players.length'),
+  player2: function(){ return this.get('players').objectAt(1); }.property('players.[]'),
 
-  currentPlayerInt: DS.attr('number', { defaultValue: 1 }),
 
   currentPlayerType: function(){
     return this.get('currentPlayerInt') === 1 ? 'x': 'o';
@@ -27,20 +20,19 @@ export default DS.Model.extend({
 
 
   currentPlayer: function(){
-    var player = this.get('player'+ this.get('currentPlayerInt'));
-    return Ember.Object.create({name: player.get('name'), id: player.get('id'), type: this.get('currentPlayerType')});
+    return this.get('player'+ this.get('currentPlayerInt'));
   }.property('currentPlayerInt'),
 
   changePlayer: function(){
 
       var currentInt = this.get('currentPlayerInt');
-      console.log('changing player', currentInt);
+      // console.log('changing player', currentInt);
 
       var playerNumber =  currentInt == 1 ? 2 : 1;
       this.set('currentPlayerInt', playerNumber );
 
-      var currentInt = this.get('currentPlayerInt');
-      console.log('changing player', currentInt);
+      // currentInt = this.get('currentPlayerInt');
+      // console.log('changing player', currentInt);
   },
 
 
