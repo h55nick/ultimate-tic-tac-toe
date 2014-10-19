@@ -7,12 +7,13 @@ export default Ember.ArrayController.extend({
       var _this = this;
       var game = this.store.createRecord('game', {
           name: 'autocreate- ' + Math.random(),
-          currentPlayerInt: 1
+          currentPlayerInt: 1,
         });
+      // game.get('players').pushObject(_this.container.lookup('route:games').get('auth.user'));
       game.save().then(function(g){
-        var promises = [];
 
         // For creating all 9
+        var promises = [];
 
         [0,1,2].forEach(function(x){
           [0,1,2].forEach(function(y){

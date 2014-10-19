@@ -7,6 +7,7 @@ export default Ember.Component.extend({
 
   actions: {
     select: function(){
+      debugger
       this.set('square', this.get('currentPlayer.name'));
       this.sendAction();
     }

@@ -6,6 +6,7 @@ export default Ember.Component.extend({
 
   actions: {
     changePlayer: function(){
+      console.log('changing player(small board)');
       this.sendAction();
     }
   }

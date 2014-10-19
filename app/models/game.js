@@ -21,15 +21,20 @@ export default DS.Model.extend({
 
   currentPlayer: function(){
     return this.get('player'+ this.get('currentPlayerInt'));
-  }.property('currentPlayerInt'),
+  }.property('currentPlayerInt', 'players.@each'),
 
   changePlayer: function(){
 
       var currentInt = this.get('currentPlayerInt');
       // console.log('changing player', currentInt);
+      console.log(currentInt);
 
       var playerNumber =  currentInt == 1 ? 2 : 1;
       this.set('currentPlayerInt', playerNumber );
+      console.log(this.get('currentPlayerInt'));
+      this.save().then(function(res){
+        console.log('RES:', res);
+      });
 
       // currentInt = this.get('currentPlayerInt');
       // console.log('changing player', currentInt);
