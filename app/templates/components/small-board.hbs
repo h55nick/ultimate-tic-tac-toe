@@ -1,20 +1,7 @@
-{{!-- I am a small board
 
-{{# if board.bounceState}}
-
-{{/if}}
-
-<p>{{currentPlayer.name}}</p> --}}
-{{!-- {{yield}} --}}
-{{ board.winner }}
-Current Player {{ board.currentPlayer.name }}
-<br/>
-{{game.currentPlayer}}<br/>
-{{currentPlayer.name}}<br/>
-{{board.game.currentPlayer.name}}<br/>
 
 {{#if board.notBounceState }}
-  <table style='inline'>
+  <table style='inline board'>
     <thead></thead>
     <tbody>{{!-- action="changePlayer" --}}
         <tr>

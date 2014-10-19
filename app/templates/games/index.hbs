@@ -1,27 +1,27 @@
-games index:
-<table>
+<button {{action createGame}} class='btn btn-info'>New Game</button>
+<br/>
+
+<table class="table-striped">
   <thead></thead>
   <tbody>
     <tr>
-    <td> Name</td>
-    <td>ID</td>
-    <td> #players</td>
-    <td> p1 </td>
-    <td> p2 </td>
-    <td> current player</td>
-  </tr>
-{{#each game in controller}}
-<tr>
-    <td> {{link-to game.name 'games.game' game}}</td>
-    <td>{{game.id}}</td>
-    <td> {{game.players.length}}</td>
-    <td> 1) {{game.player1.displayName}}</td>
-    <td> 2) {{game.player2.displayName}}</td>
-    <td> C) {{game.currentPlayer.displayName}}</td>
-  </tr>
-{{/each}}
-</tbody>
+      <td> Name</td>
+      <td> #players</td>
+      <td> p1 </td>
+      <td> p2 </td>
+      <td> current player</td>
+    </tr>
+    {{#each game in controller}}
+    <tr>
+      <td> {{link-to game.name 'games.game' game}}</td>
+      <td> {{game.players.length}}</td>
+      <td> 1) {{game.player1.displayName}}</td>
+      <td> 2) {{game.player2.displayName}}</td>
+      <td> C) {{game.currentPlayer.displayName}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
 </table>
 
 
-<button {{action createGame}}>create game</button>
+

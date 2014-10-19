@@ -7,7 +7,7 @@ export default Ember.Component.extend({
 
   actions: {
     select: function(){
-      debugger
+      console.log('tic-spot component');
       this.set('square', this.get('currentPlayer.name'));
       this.sendAction();
     }

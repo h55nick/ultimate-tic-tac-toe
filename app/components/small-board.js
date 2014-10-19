@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  currentPlayer: Ember.computed.alias('board.currentPlayer'),
-  game: Ember.computed.alias('board.game'),
+  currentPlayer: Ember.computed.alias('game.currentPlayer'),
+
 
   actions: {
     changePlayer: function(){

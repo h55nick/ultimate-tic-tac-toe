@@ -1,37 +1,163 @@
-<h3>
+{{!-- <h3>
   Game Screen
-</h3>
+</h3> --}}
 
-<h6>player 1 {{player1 }}</h6>
-<h6>player 2 {{player2 }}</h6>
+<div class="row">
+  <div class="col-md-8">
+    <br/>
+    <hr/>
+    <br/>
+    <table style='inline'>
+      <thead></thead>
+      <tbody>{{!-- action="changePlayer" --}}
+        <tr>
+          <td>{{small-board board=game.x0y0 game=game action="changePlayer" }}</td>
+          <td>{{small-board board=game.x0y1 game=game action="changePlayer" }}</td>
+          <td>{{small-board board=game.x0y2 game=game action="changePlayer" }}</td>
+        </tr>
+        <tr>
+          <td>{{small-board board=game.x1y0 game=game action="changePlayer" }}</td>
+          <td>{{small-board board=game.x1y1 game=game action="changePlayer" }}</td>
+          <td>{{small-board board=game.x1y2 game=game action="changePlayer" }}</td>
+        </tr>
+        <tr>
+          <td>{{small-board board=game.x2y0 game=game action="changePlayer" }}</td>
+          <td>{{small-board board=game.x2y1 game=game action="changePlayer" }}</td>
+          <td>{{small-board board=game.x2y2 game=game action="changePlayer" }}</td>
+        </tr>
+      </tbody>
+    </table>
 
-Game Name: {{game.name}}
-<br/>number of boards: {{game.boards.length}}
+  </div>
+  <div class="col-md-4">
+    <h2>Info</h2>
+    <hr/>
+    <h6>player 1 {{player1.displayName }}</h6>
+    <h6>player 2 {{player2.displayName }}</h6>
+    <h6>Board Length: {{game.boards.length}}</h5>
 
-<p>Currently: {{currentPlayer}}</p>
-<p>GCP: {{game.currentPlayer.name}}</p>
-<p>G00: {{game.x0y0.currentPlayer.name}}</p>
-<p>G01: {{game.x0y1.currentPlayer.name}}</p>
-<p>G01: {{game.x1y1.currentPlayer.name}}</p>
+    Game Name: {{game.name}}
+    <br/>number of boards: {{game.boards.length}}
+
+    <p>Currently: {{currentPlayer}}</p>
+    <p>GCP: {{game.currentPlayer.displayName}}</p>
+    <p>G00: {{game.x0y0.currentPlayer.displayName}}</p>
+    <p>G01: {{game.x0y1.currentPlayer.displayName}}</p>
+    <p>G01: {{game.x1y1.currentPlayer.displayName}}</p>
 
 
-<table style='inline'>
-  <thead></thead>
-  <tbody>{{!-- action="changePlayer" --}}
-      <tr>
-        <td>{{small-board board=game.x0y0  action="changePlayer" }}</td>
-        <td>{{small-board board=game.x0y1  action="changePlayer" }}</td>
-        <td>{{small-board board=game.x0y2  action="changePlayer" }}</td>
-      </tr>
-      <tr>
-        <td>{{small-board board=game.x1y0  action="changePlayer" }}</td>
-        <td>{{small-board board=game.x1y1  action="changePlayer" }}</td>
-        <td>{{small-board board=game.x1y2  action="changePlayer" }}</td>
-      </tr>
-      <tr>
-        <td>{{small-board board=game.x2y0  action="changePlayer" }}</td>
-        <td>{{small-board board=game.x2y1  action="changePlayer" }}</td>
-        <td>{{small-board board=game.x2y2  action="changePlayer" }}</td>
-      </tr>
-  </tbody>
-</table>
+
+{{!--
+
+#
+# Debugging helper
+#
+
+
+ --}}
+  {{#with game.x0y0}}
+    <div class="row">
+    <div class="col-md-12">
+      00
+          <p style='font-size:50%;'>
+        Board Winner: {{ board.winner }}<br/>
+        CP: {{currentPlayer.displayName}}<br/>
+        Game CP: {{game.currentPlayer}}<br/>
+        Board.Game CP: {{board.game.currentPlayer.displayName}}<br/>
+        Game.Board CP:  {{ board.currentPlayer.displayName }}<br/>
+      </p>
+    </div>
+    {{/with}}
+
+      {{#with game.x0y1}}
+    <div class="row">
+    <div class="col-md-12">
+      01
+          <p style='font-size:50%;'>
+        Board Winner: {{ board.winner }}<br/>
+        CP: {{currentPlayer.displayName}}<br/>
+        Game CP: {{game.currentPlayer}}<br/>
+        Board.Game CP: {{board.game.currentPlayer.displayName}}<br/>
+        Game.Board CP:  {{ board.currentPlayer.displayName }}<br/>
+      </p>
+    </div>
+    {{/with}}
+      {{#with game.x0y2}}
+    <div class="row">
+    <div class="col-md-12">
+      02
+          <p style='font-size:50%;'>
+        Board Winner: {{ board.winner }}<br/>
+        CP: {{currentPlayer.displayName}}<br/>
+        Game CP: {{game.currentPlayer}}<br/>
+        Board.Game CP: {{board.game.currentPlayer.displayName}}<br/>
+        Game.Board CP:  {{ board.currentPlayer.displayName }}<br/>
+      </p>
+    </div>
+    {{/with}}
+
+      {{#with game.x1y0}}
+    <div class="row">
+    <div class="col-md-12">
+      10
+          <p style='font-size:50%;'>
+        Board Winner: {{ board.winner }}<br/>
+        CP: {{currentPlayer.displayName}}<br/>
+        Game CP: {{game.currentPlayer}}<br/>
+        Board.Game CP: {{board.game.currentPlayer.displayName}}<br/>
+        Game.Board CP:  {{ board.currentPlayer.displayName }}<br/>
+      </p>
+    </div>
+    {{/with}}
+
+      {{#with game.x2y0}}
+    <div class="row">
+    <div class="col-md-12">
+      20
+          <p style='font-size:50%;'>
+        Board Winner: {{ board.winner }}<br/>
+        CP: {{currentPlayer.displayName}}<br/>
+        Game CP: {{game.currentPlayer}}<br/>
+        Board.Game CP: {{board.game.currentPlayer.displayName}}<br/>
+        Game.Board CP:  {{ board.currentPlayer.displayName }}<br/>
+      </p>
+    </div>
+    {{/with}}
+      {{#with game.x1y1}}
+    <div class="row">
+    <div class="col-md-12">
+      11
+          <p style='font-size:50%;'>
+        Board Winner: {{ board.winner }}<br/>
+        CP: {{currentPlayer.displayName}}<br/>
+        Game CP: {{game.currentPlayer}}<br/>
+        Board.Game CP: {{board.game.currentPlayer.displayName}}<br/>
+        Game.Board CP:  {{ board.currentPlayer.displayName }}<br/>
+      </p>
+    </div>
+    {{/with}}
+
+      {{#with game.x2y2}}
+    <div class="row">
+    <div class="col-md-12">
+      22
+          <p style='font-size:50%;'>
+        Board Winner: {{ board.winner }}<br/>
+        CP: {{currentPlayer.displayName}}<br/>
+        Game CP: {{game.currentPlayer}}<br/>
+        Board.Game CP: {{board.game.currentPlayer.displayName}}<br/>
+        Game.Board CP:  {{ board.currentPlayer.displayName }}<br/>
+      </p>
+    </div>
+    {{/with}}
+
+
+</div>
+
+
+
+
+
+
+  </div>
+</div>
