@@ -6,4 +6,8 @@ export default DS.Model.extend({
   games: DS.hasMany('game', { async: true }),
   type: null,
   // type is a terrible name.
+
+  displayName: function(){
+    return this.get('name') || this.get('email') || this.get('id');
+  }.property('name', 'email')
 });

@@ -1,15 +1,27 @@
 games index:
-<ul>
+<table>
+  <thead></thead>
+  <tbody>
+    <tr>
+    <td> Name</td>
+    <td>ID</td>
+    <td> #players</td>
+    <td> p1 </td>
+    <td> p2 </td>
+    <td> current player</td>
+  </tr>
 {{#each game in controller}}
-  <li>
-    {{link-to game.name 'games.game' game}}
-    | {{game.id}}
-    | 1) {{game.player1.email}}
-    | 2) {{game.player2.email}}
-    | C) {{game.currentPlayer.email}}
-  </li>
+<tr>
+    <td> {{link-to game.name 'games.game' game}}</td>
+    <td>{{game.id}}</td>
+    <td> {{game.players.length}}</td>
+    <td> 1) {{game.player1.displayName}}</td>
+    <td> 2) {{game.player2.displayName}}</td>
+    <td> C) {{game.currentPlayer.displayName}}</td>
+  </tr>
 {{/each}}
-</ul>
+</tbody>
+</table>
 
 
 <button {{action createGame}}>create game</button>
